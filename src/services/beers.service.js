@@ -1,13 +1,5 @@
-// const API_URL = "https://api.punkapi.com/v2/beers"
+// This JS file is used for non-UI functionality. They can then be imported as needed.
 
-// const fetchBeers = () => {
-//   return fetch(API_URL)
-//     .then((response) => response.json())
-//     .then((jsonResponse) => console.log(jsonResponse))
-    
-// }
-
-// fetchBeers();
   
 
 

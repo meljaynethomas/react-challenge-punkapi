@@ -7,7 +7,7 @@ import CardList from './components/CardList';
 import Navbar from './components/Navbar';
 import Main from "./containers/Main/Main";
 
-import beers from "./data/beers";
+// import beers from "./data/beers";
 
 // import { fetchBeers } from "./services/beers.service";
 
@@ -41,14 +41,13 @@ useEffect(() => {
 
   return (
     <>
-    {/* <button onClick={() => {fetchBeers("punk")}}>Click</button> */}
     {/* we need to pass both parts of state into Navbar as this is how React recommends we handle inputs */}
     <section>
       <Navbar searchText ={searchText} setSearchText={setSearchText}/>
     </section>
     
     <section className={styles.content}>
-      <Main beers={beers} />    
+      <Main beers={beers} searchText={searchText} />    
     </section>
     
     </>
