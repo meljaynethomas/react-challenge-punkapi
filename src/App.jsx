@@ -5,41 +5,52 @@ import styles from './App.module.scss';
 import Card from './components/Card';
 import CardList from './components/CardList';
 import Navbar from './components/Navbar';
-import Routes from './containers/Routes';
+import Main from "./containers/Main/Main";
+
+import beers from "./data/beers";
 
 // import { fetchBeers } from "./services/beers.service";
 
-
 const App = () => {
+  // state for searching:
+  const [searchText, setSearchText] = useState("");
   // need to use set state here in order to fetch data from API:
- const [beers, setBeers] = useState([]);
+  const [beers, setBeers] = useState([]);
 
  // the fetchBeers method will update the state when resolved:
  // also, we want to fetch based on a search term
 const fetchBeers = (searchTerm) => {
-  fetch(`https://api.punkapi.com/v2/beers?beer_name=${searchTerm}`)
+  const url = searchTerm ? `https://api.punkapi.com/v2/beers?beer_name=${searchTerm}` : `https://api.punkapi.com/v2/beers`
+  fetch(url)
     .then((res) => res.json())
     .then((jsonResponse) => {
       const beers = jsonResponse;
-      setBeers(beers);  
+      setBeers(beers);
       return beers;
     })
     .catch((err) => {
       console.error(err);
-    })
-      
+    }) 
 }
+useEffect(() => {
+  fetchBeers();
+}, []);
+  
  
+ // for navbar - updateSearchText={fetchBeers}
+
   return (
     <>
-    <Navbar updateSearchText={fetchBeers}/>
-    <section className={styles.content}>
-    
-    {/* <Card /> */}
-    
-    <button onClick={() => fetchBeers("elvis")}>Click Me</button>
+    {/* <button onClick={() => {fetchBeers("punk")}}>Click</button> */}
+    {/* we need to pass both parts of state into Navbar as this is how React recommends we handle inputs */}
+    <section>
+      <Navbar searchText ={searchText} setSearchText={setSearchText}/>
     </section>
-    <Routes />
+    
+    <section className={styles.content}>
+      <Main beers={beers} />    
+    </section>
+    
     </>
   );
 }

@@ -2,12 +2,21 @@ import React from 'react';
 
 import styles from './CardList.module.scss';
 
-import Card from '../Card/Card';
+import Card from '../Card';
 
-const CardList = () => {
+// import beers from "../../data/beers";
+
+const CardList = (props) => {
+  const { beers } = props;
+
+  const getCardJsx = (beer) => (
+    <div className={styles.card} key={beer.id}>
+      <Card beer={beer} />
+    </div>
+);
   return (
-    <div className={styles.CardList}>CardList</div>
+    <section className={styles.content}>{beers.map(getCardJsx)}</section>
   )
 }
 
-export default CardList
+export default CardList;

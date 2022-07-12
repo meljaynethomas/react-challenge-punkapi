@@ -2,7 +2,7 @@ PUNK API WEB APPLICATION
 
 Overview:
 
-Your task is to build a website using React based on the specifications outlineDbelow. This will be based on the Punk API which contains all the data you will need for the task. You will have to use all of the skills you have gained over the course of the module to complete this challenge.
+Your task is to build a website using React based on the specifications outlined below. This will be based on the Punk API which contains all the data you will need for the task. You will have to use all of the skills you have gained over the course of the module to complete this challenge.
  
 Requirements:
 

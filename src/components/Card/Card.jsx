@@ -2,6 +2,7 @@ import React from 'react';
 
 import styles from './Card.module.scss';
 
+
 const Card = (props) => {
   const {
     image_url,
@@ -32,4 +33,4 @@ const Card = (props) => {
   )
 }
 
-export default Card
+export default Card;
