@@ -14,9 +14,11 @@ const Main = (props) => {
 
   // // If matchingBeers has any length, display the matching beers:
   // const contentJSX = matchingBeers.length (
-
-
+  //   <CardList beers={matchingBeers} searchText={searchText} />
+  // )
+  
   return (
+    // {contentJSX}
     <CardList beers={beers} searchText={searchText} />
   )
 }

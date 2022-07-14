@@ -7,47 +7,30 @@ import CardList from './components/CardList';
 import Navbar from './components/Navbar';
 import Main from "./containers/Main/Main";
 
-// import beers from "./data/beers";
-
-// import { fetchBeers } from "./services/beers.service";
+import { fetchBeers } from "./services/beers.service";
 
 const App = () => {
-  // state for searching:
-  const [searchText, setSearchText] = useState("");
-  // need to use set state here in order to fetch data from API:
+  // Need to use set state here in order to fetch data from API:
   const [beers, setBeers] = useState([]);
 
- // the fetchBeers method will update the state when resolved:
- // also, we want to fetch based on a search term
-const fetchBeers = (searchTerm) => {
-  const url = searchTerm ? `https://api.punkapi.com/v2/beers?beer_name=${searchTerm}` : `https://api.punkapi.com/v2/beers`
-  fetch(url)
-    .then((res) => res.json())
-    .then((jsonResponse) => {
-      const beers = jsonResponse;
-      setBeers(beers);
-      return beers;
-    })
-    .catch((err) => {
-      console.error(err);
-    }) 
-}
-useEffect(() => {
-  fetchBeers();
-}, []);
-  
- 
- // for navbar - updateSearchText={fetchBeers}
+  // Use the service to get beers, and then set state:
+  const updateBeers = async (searchTerm) => {
+    // We are actually returning a promise - either use .then or make it an asychronous function (i.e. doesn't run in tandem with our application, but waits to run until
+    // full response is received from fetchRecipes function). async function needed here...
+    const apiBeers = await fetchBeers(searchTerm);
+
+    setBeers(apiBeers);
+  }
 
   return (
     <>
     {/* we need to pass both parts of state into Navbar as this is how React recommends we handle inputs */}
     <section>
-      <Navbar searchText ={searchText} setSearchText={setSearchText}/>
+      <Navbar updateSearchText={updateBeers} />
     </section>
     
     <section className={styles.content}>
-      <Main beers={beers} searchText={searchText} />    
+      <Main beers={beers} />    
     </section>
     
     </>
