@@ -1,25 +1,25 @@
 import React from 'react';
-import Card from '../../components/Card';
+
+import styles from './Main.module.scss';
+
 import CardList from '../../components/CardList';
-// import beers from '../../data/beers';
+
 
 const Main = (props) => {
-  const { beers, searchText } = props;
+  const { beers } = props;
 
-  //  // Filtering through the beers array to find any that match the text in the search bar:
-  //  const matchingBeers = beers.filter((beer) => {
-  //   const beerName = beer.name.toLowerCase();
-  //   return beerName.includes(searchText.toLowerCase());
-  // });
-
-  // // If matchingBeers has any length, display the matching beers:
-  // const contentJSX = matchingBeers.length (
-  //   <CardList beers={matchingBeers} searchText={searchText} />
-  // )
+  // const getHighAlcoholBeers = (beers) => {
+  //   const highAlcoholBeers = beers.filter((beer) => beer.abv > 6);
+  //   console.log(highAlcoholBeers);
+  // }
   
+
+
   return (
-    // {contentJSX}
-    <CardList beers={beers} searchText={searchText} />
+    <>
+    <CardList className={styles.Main} beers={beers} />
+    {/* <button onClick={getHighAlcoholBeers}>Filter by ABV</button> */}
+    </>
   )
 }
 

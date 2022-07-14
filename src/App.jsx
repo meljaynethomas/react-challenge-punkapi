@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import styles from './App.module.scss';
 
-import Card from './components/Card';
-import CardList from './components/CardList';
 import Navbar from './components/Navbar';
 import Main from "./containers/Main/Main";
 
@@ -12,19 +10,19 @@ import { fetchBeers } from "./services/beers.service";
 const App = () => {
   // Need to use set state here in order to fetch data from API:
   const [beers, setBeers] = useState([]);
+  
 
   // Use the service to get beers, and then set state:
   const updateBeers = async (searchTerm) => {
     // We are actually returning a promise - either use .then or make it an asychronous function (i.e. doesn't run in tandem with our application, but waits to run until
     // full response is received from fetchRecipes function). async function needed here...
     const apiBeers = await fetchBeers(searchTerm);
-
+    
     setBeers(apiBeers);
   }
 
   return (
     <>
-    {/* we need to pass both parts of state into Navbar as this is how React recommends we handle inputs */}
     <section>
       <Navbar updateSearchText={updateBeers} />
     </section>

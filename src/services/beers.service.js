@@ -3,15 +3,9 @@
 
 const API_URL = "https://api.punkapi.com/v2/beers";
 
-  
-// REFACTOR IF / ELSE API URL FETCH... NOT WORKING
-// ALSO NEW RELATED FUNCTIONALITY IN APP.JSX IS NOT WORKING!!!
-
-// the fetchBeers method will update the state when resolved:
- // also, we want to fetch based on a search term
- export const fetchBeers = (searchTerm) => {
-  // if no searchTerm return all beers else return beers with searchTerm   
-  const url = !searchTerm ? `${API_URL}` : `${API_URL}?beer_name=${searchTerm}`
+export const fetchBeers = (searchTerm) => {
+  // if searchTerm, return beers with searchTerm, else return all beers
+  const url = searchTerm ? `${API_URL}?beer_name=${searchTerm}` : `${API_URL}`
   return fetch(url)
     .then((res) => res.json())
     .then((jsonResponse) => {

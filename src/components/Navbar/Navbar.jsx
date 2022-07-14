@@ -3,6 +3,7 @@ import React from 'react';
 import styles from './Navbar.module.scss';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SearchBar from '../SearchBar';
+//import { highAlcoholBeers } from '../CardList/CardList';
 
 
 const Navbar = (props) => {

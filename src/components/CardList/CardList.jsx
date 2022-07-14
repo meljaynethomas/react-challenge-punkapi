@@ -4,7 +4,6 @@ import styles from './CardList.module.scss';
 
 import Card from '../Card';
 
-// import beers from "../../data/beers";
 
 const CardList = (props) => {
   const { beers } = props;
@@ -14,8 +13,12 @@ const CardList = (props) => {
       <Card beer={beer} />
     </div>
 );
+
   return (
-    <section className={styles.content}>{beers.map(getCardJsx)}</section>
+    <>
+    <section className={styles.cards}>{beers.map(getCardJsx)}</section>
+    </>
+
   )
 }
 
