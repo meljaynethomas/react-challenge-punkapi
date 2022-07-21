@@ -7,14 +7,14 @@ import SearchBar from '../SearchBar';
 
 
 const Navbar = (props) => {
-  const {updateSearchText} = props; 
+  const {updateSearchText, setSearchTerm} = props; 
 
   return (
     <div className={styles.sideNav}>
       {/* <FontAwesomeIcon icon="fa-solid fa-beer-mug-empty" /> */}
       <h2>PUNK API</h2>
       <div className={styles.searchPanel}>
-        <SearchBar placeholder="Search for beers..." updateSearchText={updateSearchText} />
+        <SearchBar placeholder="Search for beers..." updateSearchText={updateSearchText} setSearchTerm={setSearchTerm} />
       </div>
     </div>  
   )
