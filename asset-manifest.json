@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/react-challenge-punkapi/static/css/main.66d4840e.css",
+    "main.js": "/react-challenge-punkapi/static/js/main.7d03dc71.js",
+    "static/js/787.1fcf16fc.chunk.js": "/react-challenge-punkapi/static/js/787.1fcf16fc.chunk.js",
+    "index.html": "/react-challenge-punkapi/index.html",
+    "main.66d4840e.css.map": "/react-challenge-punkapi/static/css/main.66d4840e.css.map",
+    "main.7d03dc71.js.map": "/react-challenge-punkapi/static/js/main.7d03dc71.js.map",
+    "787.1fcf16fc.chunk.js.map": "/react-challenge-punkapi/static/js/787.1fcf16fc.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.66d4840e.css",
+    "static/js/main.7d03dc71.js"
+  ]
+}
