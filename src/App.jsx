@@ -8,22 +8,11 @@ import Main from "./containers/Main/Main";
 import { fetchBeers } from "./services/beers.service";
 
 const App = () => {
-  // Need to use set state here in order to fetch data from API:
+
   const [beers, setBeers] = useState([]);
   const [searchTerm, setSearchTerm] = useState();
   
-
-  // Use the service to get beers, and then set state:
-  // const updateBeers = async (searchTerm) => {
-  //   // We are actually returning a promise - either use .then or make it an asychronous function (i.e. doesn't run in tandem with our application, but waits to run until
-  //   // full response is received from fetchRecipes function). async function needed here...
-  //   const apiBeers = await fetchBeers(searchTerm);
-    
-  //   setBeers(apiBeers);
-  // }
-
-  useEffect(() => {
-    //  updateBeers(searchTerm)
+   useEffect(() => {
     const displayBeers = async() => {
       const apiBeers = await fetchBeers(searchTerm);
       console.log(apiBeers);
