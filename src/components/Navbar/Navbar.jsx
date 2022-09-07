@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './Navbar.module.scss';
 import SearchBar from '../SearchBar';
 
-
 const Navbar = (props) => {
   const {updateSearchText, setSearchTerm} = props; 
 
